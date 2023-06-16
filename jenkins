@@ -4,7 +4,7 @@
     stages {
         stage('git') {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lylla834/Brief14-1.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lylla834/brief14lylla']])
             }
         }  
         stage('Terraform init') {
