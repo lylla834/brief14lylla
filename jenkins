@@ -1,0 +1,46 @@
+    pipeline {
+    agent any
+    
+    stages {
+        stage('git') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lylla834/Brief14-1.git']])
+            }
+        }  
+        stage('Terraform init') {
+            steps {
+                sh "terraform init"
+            }
+        }
+        
+        stage('Terraform plan') {
+            steps {
+                sh "terraform plan"
+            }
+        }
+        
+        stage('Terraform apply') {
+            steps {
+                sh "terraform apply -auto-approve"
+            }
+        }
+    
+        stage ('Terraform-Init Prod') {
+            steps {
+                sh "cd prod && terraform init"
+            }                
+        }
+
+        stage ('Terraform-Plan Prod') {
+            steps {
+                sh "cd prod && terraform plan"
+            }
+        }
+
+        stage ('Terraform-Apply Prod') {
+            steps {
+                sh "cd prod && terraform apply -auto-approve"
+            }
+        }  
+    }
+}
