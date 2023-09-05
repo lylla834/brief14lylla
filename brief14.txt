@@ -97,6 +97,7 @@ Puis
 ENABLE ACTIVER 
 
 sudo rm -rf brief14lylla pour supprimer un dossier
+docker run -p 3000:3000 -d <nom_de_l_image>
 
 
 
