@@ -4,33 +4,10 @@ Objectif : Déploiement d'une infrastructure avec Terraform, construction d'un c
 envoi de l'image sur Docker Hub et orchestration du déploiement sur deux machines virtuelles à l'aide de Jenkins
 
 1 Cloner le git du brief14
-2 script pour installation docker dans terraform 
+2 Script pour installation docker dans terraform 
+3 Executer le Dockerfile via la commande : docker build -t img_app_py .
 
 
-
-#!/bin/bash
-
-#Installing Docker
-
-sudo apt-get update
-sudo apt install docker.io -y
-sudo groupadd docker
-sudo usermod -aG docker lylla
-sudo chown lylla:docker /var/run/docker.sock
-sudo chmod 666 /var/run/docker.sock
-sudo systemctl restart docker
-sudo systemctl enable docker.service
-sudo systemctl enable containerd.service
-
-
-#Creating container
-
-sudo git clone https://github.com/samzri1/brief14.git
-sudo docker build -t img_app_py .
-sudo docker run --name cont_appy_py_lylla -p 8080:1234 -d img_app_py
-sudo docker tag img_app_py:latest lyllabani/img_app_py:latest
-sudo docker login -u lyllabani -p dckr_pat_BPdule2UQ-Mif_zdZGq6E5R24EA
-sudo docker push lyllabani/img_app_py:latest
 
 
 Pensez à configuer le serveur Jenkins avec tous les logiciels necessaire : ici ajout de plugin Terraform et git 
