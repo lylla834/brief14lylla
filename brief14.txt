@@ -6,6 +6,7 @@ envoi de l'image sur Docker Hub et orchestration du déploiement sur deux machin
 1 Cloner le git du brief14
 2 Script pour installation docker dans terraform 
 3 Executer le Dockerfile via la commande : docker build -t img_app_py .
+4 lancer le script in
 
 
 
