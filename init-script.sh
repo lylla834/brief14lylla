@@ -16,7 +16,6 @@ sudo systemctl enable containerd.service
 #Creating container
 
 sudo git clone https://github.com/samzri1/brief14.git
-cd /
 cd brief14
 sudo docker build -t img_app_py .
 sudo docker tag img_app_py:latest lyllabani/img_app_py:latest
