@@ -7,7 +7,8 @@ envoi de l'image sur Docker Hub et orchestration du déploiement sur deux machin
 2 Script pour installation docker dans terraform qui executera le Dockerfile de l'image et envoyer image sur Dockerhub.
 3 Creation d'un Jenkinsfile. ( configuration du serveur Jenkins et ajout des plugin. puis utiliser onglets pipeline pour aide au script pour creer le jenkinsfile)
 Pensez à configuer le serveur Jenkins avec tous les logiciels necessaire : ici ajout de plugin Terraform et git et docker.
-Aller dans Pipeline, ajout de url Git et lancer le build
+Aller dans Pipeline, ajout de url Git, configurer la pipeline. Pensez à configurer la partie credentials.
+Pour se connecter le Docker allez dans onglet "administrer Jenkins"; credentials et creer un credential AZURE
 
 
 
