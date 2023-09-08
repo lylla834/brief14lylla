@@ -31,6 +31,13 @@
                 sh 'docker push lyllabani/img_app_py:latest'
             }
         } 
+        
+        stage('Connection') {
+            steps {
+                sh 'az login --service-principal -u $MY_CRED_CLIENT_ID -p $MY_CRED_CLIENT_SECRET -t $MY_CRED_TENANT_ID'
+            }
+        }
+
 
         stage('Terraform init') {
             steps {
