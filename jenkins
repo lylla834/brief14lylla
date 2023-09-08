@@ -9,7 +9,7 @@
         }  
         stage('Docker Login') {
             steps {
-                sh 'docker login -u id -p mot de passe'
+                sh 'docker login -u lyllabani -p dckr_pat_BPdule2UQ-Mif_zdZGq6E5R24EA'
             }
         }
         
