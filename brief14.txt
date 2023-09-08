@@ -4,9 +4,8 @@ Objectif : Déploiement d'une infrastructure avec Terraform, construction d'un c
 envoi de l'image sur Docker Hub et orchestration du déploiement sur deux machines virtuelles à l'aide de Jenkins
 
 1 Cloner le git du brief14
-2 Script pour installation docker dans terraform 
-3 Executer le Dockerfile via la commande : docker build -t img_app_py .
-4 lancer le script in
+2 Script pour installation docker dans terraform qui executera le Dockerfile de l'image et envoyer image sur Dockerhub.
+3 Creation d'un Jenkinsfile. ( configuration du serveur Jenkins et ajout des plugin. puis utiliser onglets pipeline pour aide au script pour creer le jenkinsfile)
 
 
 
@@ -77,8 +76,84 @@ INSTALLATION MONITORING /
 Puis 
 ENABLE ACTIVER 
 
-sudo rm -rf brief14lylla pour supprimer un dossier
-docker run -p 3000:3000 -d <nom_de_l_image>
+
+AIDEMEMO
+
+docker build -t img_app_py .
+docker run -p 3000:3000 -d img_app_py
+
+sudo rm -rf brief14lylla pour supprimer dossier git avec ce qui a dedans
+
+https://github.com/lylla834/brief14lylla.git
+installer jenkins :
+
+https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-16-04
+
+sudo apt update
+sudo apt upgrade
+
+sudo apt install openjdk-11-jdk
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+
+
+sudo apt install jenkins
+
+sudo systemctl status jenkins
+
+sudo ufw allow 8080
+sudo ufw allow OpenSSH
+sudo ufw enable
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+INSTALLATION TERRAFORM
+
+https://www.digitalocean.com/community/tutorials/how-to-use-terraform-with-digitalocean
+
+
+curl -o ~/terraform.zip https://releases.hashicorp.com/terraform/1.1.3/terraform_1.1.3_linux_amd64.zip
+mkdir -p ~/opt/terraform
+sudo apt install unzip
+unzip ~/terraform.zip -d ~/opt/terraform
+vim ~/.bashrc
+Pour ajouter le chemin de Terraform à votre PATH, ajoutez la ligne suivante à la fin du fichier :
+
+.bashrc
+export PATH=$PATH:~/opt/terraform
+Désormais, toutes vos nouvelles sessions shell pourront trouver la terraformcommande. Pour charger le nouveau PATHdans votre session en cours, exécutez la commande suivante si vous utilisez Bash sur un système Linux :
+
+. ~/.bashrc
+
+terraform version
+
+INSTALLATION ANSIBLE
+
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible
+
+
+
+
+ "cloudName": "AzureCloud",
+    "homeTenantId": "7349d3b2-951f-41be-877e-d8ccd9f3e73c",
+    "id": "393e3de3-0900-4b72-8f1b-fb3b1d6b97f1",
+    "isDefault": true,
+    "managedByTenants": [],
+    "name": "Simplon ARA Lyon Admin Cloud P22",
+    "state": "Enabled",
+    "tenantId": "7349d3b2-951f-41be-877e-d8ccd9f3e73c",
+    "user": {
+     
+
+Simplon ARA Lyon Admin Cloud P22 393e3de3-0900-4b72-8f1b-fb3b1d6b97f1 7349d3b2-951f-41be-877e-d8ccd9f3e73c Enabled
+PS /home/lylla> $sp.appId                                                                     
+f75251c1-96d5-471b-90b9-29ec66797db7
+PS /home/lylla> $sp.PasswordCredentials.SecretText                                            
+Pkh8Q~KLk3WBYweHa9uxkWi5x668ySN1kzzv5a0s
+PS /home/lylla> 
 
 
 
