@@ -22,7 +22,7 @@
 
         stage('Docker Login') {
             steps {
-                sh 'docker login -u lyllabani -p dckr_pat_********************'
+                sh 'docker login -u lyllabani -p dckr_pat_BPdule2UQ-Mif_zdZGq6E5R24EA'
             }
         }
        
