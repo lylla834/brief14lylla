@@ -34,7 +34,7 @@
 
         stage('Connection') {
             steps {
-                sh 'az login --service-principal -u $MY_CRED_CLIENT_ID -p $MY_CRED_CLIENT_SECRET -t $MY_CRED_TENANT_ID'
+                sh 'az login --service-principal -u f75251c1-96d5-471b-90b9-29ec66797db7 -p Pkh8Q~KLk3WBYweHa9uxkWi5x668ySN1kzzv5a0s -t 7349d3b2-951f-41be-877e-d8ccd9f3e73c'
             }
         }
 
