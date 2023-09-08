@@ -9,13 +9,13 @@
         }  
         stage('Docker Login') {
             steps {
-                sh 'docker login -u lyllabani -p dckr_pat_BPdule2UQ-Mif_zdZGq6E5R24EA'
+                sh 'sudo docker login -u lyllabani -p dckr_pat_BPdule2UQ-Mif_zdZGq6E5R24EA'
             }
         }
         
         stage ('Docker Build') {
             steps {
-                sh 'cd image && docker build -t img_app_py .'
+                sh 'cd image && sudo docker build -t img_app_py .'
             }    
         }
 
