@@ -6,24 +6,26 @@
             steps {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lylla834/brief14lylla']])
             }
-        }  
-        stage('Docker Login') {
-            steps {
-                sh 'sudo docker login -u lyllabani -p dckr_pat_BPdule2UQ-Mif_zdZGq6E5R24EA https://hub.docker.com/'
-            }
-        }
-        stage ('Docker Build') {
+        } 
+
+    stage ('Docker Build') {
             steps {
                 sh 'cd image && sudo docker build -t img_app_py .'
             }    
         }
 
-        stage ('Docker Tag') {
+   stage ('Docker Tag') {
             steps {
                 sh 'sudo docker tag img_app_py:latest lyllabani/img_app_py:latest'
             }
         }
 
+        stage('Docker Login') {
+            steps {
+                sh 'docker login -u lyllabani -p dckr_pat_********************'
+            }
+        }
+       
         stage ('Docker Push') {
             steps {
                 sh 'sudo docker push lyllabani/img_app_py:latest'
