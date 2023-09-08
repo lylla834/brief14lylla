@@ -10,13 +10,13 @@
 
     stage ('Docker Build') {
             steps {
-                sh 'cd image && sudo docker build -t img_app_py .'
+                sh 'cd image && docker build -t img_app_py .'
             }    
         }
 
    stage ('Docker Tag') {
             steps {
-                sh 'sudo docker tag img_app_py:latest lyllabani/img_app_py:latest'
+                sh 'docker tag img_app_py:latest lyllabani/img_app_py:latest'
             }
         }
 
@@ -28,7 +28,7 @@
        
         stage ('Docker Push') {
             steps {
-                sh 'sudo docker push lyllabani/img_app_py:latest'
+                sh 'docker push lyllabani/img_app_py:latest'
             }
         } 
 
