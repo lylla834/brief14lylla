@@ -7,11 +7,30 @@
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lylla834/brief14lylla']])
             }
         }  
-        stage('Installation docker') {
+        stage('Docker Login') {
             steps {
-                sh "init-script.sh"
+                sh 'docker login -u id -p mot de passe'
             }
         }
+        
+        stage ('Docker Build') {
+            steps {
+                sh 'cd image && docker build -t img_app_py .'
+            }    
+        }
+
+        stage ('Docker Tag') {
+            steps {
+                sh 'sudo docker tag img_app_py:latest lyllabani/img_app_py:latest'
+            }
+        }
+
+        stage ('Docker Push') {
+            steps {
+                sh 'sudo docker push lyllabani/img_app_py:latest'
+            }
+        } 
+
         stage('Terraform init') {
             steps {
                 sh "terraform init"
