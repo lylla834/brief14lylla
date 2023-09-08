@@ -6,11 +6,11 @@ envoi de l'image sur Docker Hub et orchestration du déploiement sur deux machin
 1 Cloner le git du brief14
 2 Script pour installation docker dans terraform qui executera le Dockerfile de l'image et envoyer image sur Dockerhub.
 3 Creation d'un Jenkinsfile. ( configuration du serveur Jenkins et ajout des plugin. puis utiliser onglets pipeline pour aide au script pour creer le jenkinsfile)
-
-
-
-
 Pensez à configuer le serveur Jenkins avec tous les logiciels necessaire : ici ajout de plugin Terraform et git 
+
+
+
+
 
 
 CREATION JENKINSFILE :
