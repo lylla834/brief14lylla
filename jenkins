@@ -7,9 +7,9 @@
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lylla834/brief14lylla']])
             }
         }  
-       stage('Docker Login') {
-           steps {
-               sudo docker login -u lyllabani -p dckr_pat_BPdule2UQ-Mif_zdZGq6E5R24EA
+        stage('Docker Login') {
+            steps {
+                sh 'docker login -u id -p mot de passe'
             }
         }
         stage ('Docker Build') {
