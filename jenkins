@@ -11,8 +11,8 @@
            steps {
                def dockerPassword = 'dckr_pat_BPdule2UQ-Mif_zdZGq6E5R24EA'
                sh "echo ${dockerPassword} | sudo -S docker login -u lyllabani --password-stdin"
+            }
         }
-    }
         stage ('Docker Build') {
             steps {
                 sh 'cd image && sudo docker build -t img_app_py .'
